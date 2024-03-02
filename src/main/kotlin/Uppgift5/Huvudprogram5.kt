@@ -19,5 +19,4 @@ fun main() {
     //println(numbersActualSumsUp)
 
     println(numbersActualSumsUp.get(0).toInt()*numbersActualSumsUp.get(1).toInt()*numbersActualSumsUp.get(2).toInt())
-
 }
