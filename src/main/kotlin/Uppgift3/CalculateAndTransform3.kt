@@ -15,30 +15,15 @@ class CalculateAndTransform3 {
 
     fun adjusteddataFromWeb(number: String): String {
         var modifiedNumber = number
-        //   if (modifiedNumber.contains("nineight")) {
-        //       modifiedNumber = modifiedNumber.replace("nineight", "9")
-        //   }
-//  if (modifiedNumber.contains("sevenine")) {
-//        modifiedNumber = modifiedNumber.replace("sevenine", "7")
-//    }
         if (modifiedNumber.contains("oneight")) {
             modifiedNumber = modifiedNumber.replace("oneight", "18")
         }
-        //   if (modifiedNumber.contains("fiveight")) {
-        //       modifiedNumber = modifiedNumber.replace("fiveight", "5")
-        //   }
         if (modifiedNumber.contains("twone")) {
             modifiedNumber = modifiedNumber.replace("twone", "21")
         }
         if (modifiedNumber.contains("eightwo")) {
             modifiedNumber = modifiedNumber.replace("eightwo", "82")
         }
-        //   if (modifiedNumber.contains("eighthree")) {
-        //      modifiedNumber = modifiedNumber.replace("eighthree", "8")
-        //  }
-        //   if (modifiedNumber.contains("threeight")) {
-        //       modifiedNumber = modifiedNumber.replace("threeight", "3")
-        //   }
         return modifiedNumber
     }
 

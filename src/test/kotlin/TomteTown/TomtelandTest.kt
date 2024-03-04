@@ -97,8 +97,6 @@ class TomtelandTest {
         assertEquals(uSkumtomten.size, underlings.size)
         assertTrue(underlings.containsAll(uSkumtomten) && uSkumtomten.containsAll(underlings))
     }
-
-
 }
 
 

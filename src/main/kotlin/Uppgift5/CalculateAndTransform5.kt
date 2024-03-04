@@ -18,7 +18,6 @@ class CalculateAndTransform5 {
     }
 
     fun match3Numbers(numberSentIn: String, listOfNumbers: List<String>): String {
-
         var counter = 0
         var innerCounter = 0
 

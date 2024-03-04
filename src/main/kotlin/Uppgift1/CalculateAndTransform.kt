@@ -32,19 +32,4 @@ class CalculateAndTransform {
         val sumList = intList.sortedDescending().take(3).sum() //Tar de tre högsta i listan + räknar summan.
         return sumList
     }
-
-    //Temp lösning tidigare. Justerad emot funktionell lösning i huvudprogram.
-    fun convertToIntLIst(stringList: List<String>): List<Int> {
-        val tempIntList = mutableListOf<Int>()
-
-        for (e in stringList) {
-            if (e.isNotBlank()) {
-                tempIntList.add(e.toInt())
-            } else {
-                tempIntList.add(0)
-            }
-        }
-
-        return tempIntList
-    }
 }

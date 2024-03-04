@@ -9,6 +9,16 @@ class CalculateAndTransform2Test {
     var ct = CalculateAndTransform2()
 
     @Test
+    fun convertTomteListTest(){
+        val testList = mutableListOf("A Z","B X","C X")
+        val result = mutableListOf("A", "B", "C")
+        val result2 = mutableListOf("A", "B", "D")
+        assert(ct.convertTomteList(testList).equals(result))
+        assert(!ct.convertTomteList(testList).equals(result2))
+        assertEquals(ct.convertTomteList(testList), result)
+    }
+
+    @Test
     fun convertSimonListTest() {
         val testList = mutableListOf("A Y","B X","B Z")
         val result = mutableListOf("B","A","C")
@@ -20,7 +30,6 @@ class CalculateAndTransform2Test {
         assert (!ct.convertSimonList(testList2).equals(result))
         assertNotEquals(result2, ct.convertSimonList(testList))
     }
-
 
     @Test
     fun gameRoundsTest() {

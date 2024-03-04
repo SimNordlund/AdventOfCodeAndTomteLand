@@ -7,7 +7,6 @@ class CalculateAndTransform4 {
         val horizontalData = dataFromWeb.filter { e -> e.contains("forward") } //Lista av forward
         val intHozData = horizontalData.map { it.filter { it.isDigit() }.toInt() } //Gör om till int-lista
         val sumHozData = intHozData.map { it }.sum() //Räknar ut summan
-
         return sumHozData
     }
 
@@ -34,7 +33,6 @@ class CalculateAndTransform4 {
                 aim = aim - e.substring(e.length - 1).toInt() //up
             }
         }
-
         return depth
     }
 }
