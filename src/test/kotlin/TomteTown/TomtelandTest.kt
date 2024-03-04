@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions.assertTrue
 class TomtelandTest {
     private var tl = Tomteland()
 
-    // Dina listor...
     private var uTomten: List<String> = mutableListOf(
         "Tröger", "Trötter", "Blyger", "Dammråttan", "Skumtomten", "Glader",
         "Butter", "Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran", "Bladlusen"
@@ -16,10 +15,38 @@ class TomtelandTest {
         "Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran",
         "Bladlusen"
     )
-    private var uTrötter: List<String> = mutableListOf("Dammråttan", "Skumtomten")
+    private var uTrötter: List<String> = mutableListOf("Dammråttan", "Skumtomten") //Stämmer denna?
     private var uSkumtomten: List<String> = mutableListOf("Dammråttan")
     private var uRäven: List<String> = mutableListOf("Gråsuggan", "Myran", "Bladlusen")
     private var uMyran = mutableListOf("Bladlusen")
+
+    @Test
+    fun underlingsTomtenTest() {
+        val underlings = tl.getUnderlings("Tomten", tl.mapTomteTown)
+        assertEquals(uTomten.size, underlings.size)
+        assertTrue(underlings.containsAll(uTomten) && uTomten.containsAll(underlings))
+    }
+
+    @Test
+    fun underlingsButterTest() {
+        val underlings = tl.getUnderlings("Butter", tl.mapTomteTown)
+        assertEquals(uButter.size, underlings.size)
+        assertTrue(underlings.containsAll(uButter) && uButter.containsAll(underlings))
+    }
+
+    @Test
+    fun underlingsGladerTest() {
+        val underlings = tl.getUnderlings("Glader", tl.mapTomteTown)
+        assertEquals(uGlader.size, underlings.size)
+        assertTrue(underlings.containsAll(uGlader) && uGlader.containsAll(underlings))
+    }
+
+    @Test
+    fun underlingsTrötterTest() {
+        val underlings = tl.getUnderlings("Trötter", tl.mapTomteTown)
+        assertEquals(uTrötter.size, underlings.size)
+        assertTrue(underlings.containsAll(uTrötter) && uTrötter.containsAll(underlings))
+    }
 
     @Test
     fun underlingsBladlusenTest() {

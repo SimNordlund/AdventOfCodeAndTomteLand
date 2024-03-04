@@ -26,12 +26,10 @@ class CalculateAndTransform2 {
                 it.contains("X") -> {
                     if (it[0] != 'A') (it[0] - 1).toString() else 'C'.toString()
                 }
-
                 it.contains("Y") -> "${it[0]}"
                 it.contains("Z") -> {
                     if (it[0] != 'C') (it[0] + 1).toString() else 'A'.toString()
                 }
-
                 else -> it
             }
         }
@@ -43,32 +41,32 @@ class CalculateAndTransform2 {
         var counter = 0
         var points = 0
         for (e in tomte) {
-            if (simon.get(counter).equals(tomte.get(counter))) { //Om det blir lika +3
-                points = points + 3
-                if (simon.get(counter).equals("A")) {
-                    points = points + 1
-                } else if (simon.get(counter).equals("B")) {
-                    points = points + 2
-                } else if (simon.get(counter).equals("C")) {
-                    points = points + 3
+            if (simon[counter] == tomte[counter]) { //Om det blir lika +3
+                points += 3
+                if (simon[counter] == "A") {
+                    points += 1
+                } else if (simon[counter] == "B") {
+                    points += 2
+                } else if (simon[counter] == "C") {
+                    points += 3
                 }
-            } else if (simon.get(counter).equals("A")) { //Sten för Simon
-                if (tomte.get(counter).equals("B")) { //Påse för Tomte
-                    points = points + 1
-                } else if (tomte.get(counter).equals("C")) { //Sax för Tomte
-                    points = points + 7
+            } else if (simon[counter] == "A") { //Sten för Simon
+                if (tomte[counter] == "B") { //Påse för Tomte
+                    points += 1
+                } else if (tomte[counter] == "C") { //Sax för Tomte
+                    points += 7
                 }
-            } else if (simon.get(counter).equals("B")) { //Påse för Simon
-                if (tomte.get(counter).equals("C")) {
-                    points = points + 2
-                } else if (tomte.get(counter).equals("A")) {
-                    points = points + 8
+            } else if (simon[counter] == "B") { //Påse för Simon
+                if (tomte[counter] == "C") {
+                    points += 2
+                } else if (tomte[counter] == "A") {
+                    points += 8
                 }
-            } else if (simon.get(counter).equals("C")) { //Påse för Simon
-                if (tomte.get(counter).equals("A")) {
-                    points = points + 3
-                } else if (tomte.get(counter).equals("B")) {
-                    points = points + 9
+            } else if (simon[counter] == "C") { //Påse för Simon
+                if (tomte[counter] == "A") {
+                    points += 3
+                } else if (tomte[counter] == "B") {
+                    points += 9
                 }
             }
             counter++
@@ -78,7 +76,7 @@ class CalculateAndTransform2 {
 
     ///65 = A, //66 = B, //67 = C
     fun convertSimonListVersionTest(dataInString: List<String>): List<String> {
-        var tempList = dataInString.map {
+        val tempList = dataInString.map {
             if (it.contains("X")) //OM förlust
                 if ((it.get(0) - 1).code != 64) { //OM TOMTEN -> INTE ETT A
                     it.get(0) + " " + (it.get(0) - 1).code.toChar()
