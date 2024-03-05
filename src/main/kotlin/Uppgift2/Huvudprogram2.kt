@@ -9,11 +9,11 @@ fun main() {
     //2022 Uppgift 2A), A = Sten, B = Påse, C = Sax
 
     //Skapar upp två listar som får spela emot varandra i gameRounds.
-    val tomtePlayer = ct.convertTomteList(dataInString) //Tar fram tomtes val.
-    val simonPlayer = ct.convertSimonList(dataInString) //Tar fram Simons val, översätter till abc.
+    val tomtePlayer = ct.convertTomteList(dataInString)
+    val simonPlayer = ct.convertSimonList(dataInString)
 
     //Listorna spelar emot varandra, räknar poäng samtidigt.
-    val resultGames = ct.gameRounds(simonPlayer, tomtePlayer) //Tar fram poäng
+    val resultGames = ct.gameRounds(simonPlayer, tomtePlayer)
     println(resultGames) //Skriver ut resultat
 
 //2022 Uppgift 2B) X = LOSS, Y = LIKA, Z = VINST
