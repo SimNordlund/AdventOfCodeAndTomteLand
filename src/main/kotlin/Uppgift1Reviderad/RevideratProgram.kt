@@ -12,7 +12,6 @@ package Uppgift1
         return sortedSums
     }
 
-
 fun main() {
     val part1 = parseInput().first()
     val part2 = parseInput().take(3).sum()

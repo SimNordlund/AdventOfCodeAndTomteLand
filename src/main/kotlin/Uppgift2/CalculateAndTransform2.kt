@@ -36,7 +36,7 @@ class CalculateAndTransform2 {
         return simonPlayer
     }
 
-    //Räknar fram hur mycket poäng som ges i spelet till "Simon". STEN,PÅSE,SAX
+    //Räknar fram hur mycket poäng som ges i spelet till "Simon". STEN, PÅSE, SAX
     fun gameRounds(simon: List<String>, tomte: List<String>): Int {
         var counter = 0
         var points = 0
@@ -73,6 +73,7 @@ class CalculateAndTransform2 {
         }
         return points
     }
+
 
     ///65 = A, //66 = B, //67 = C
     fun convertSimonListVersionTest(dataInString: List<String>): List<String> {

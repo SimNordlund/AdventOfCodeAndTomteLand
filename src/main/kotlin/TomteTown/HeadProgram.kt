@@ -1,15 +1,14 @@
 package TomteTown
 
-private val tl = Tomteland()
-
-//TODO()
-//Test för input?
-//Justera rekursiv funktion?
-//Tailrec?
-
 fun main() {
-    println("Ange tomte") //Test för detta?
-    val inputTomte: String = readlnOrNull() ?: "TomTomte"
-    println(tl.getUnderlings(inputTomte, tl.mapTomteTown))
-    println(tl.getUnderlings2(inputTomte, tl.mapTomteTown))
+    val tl = Tomteland()
+    val isTest = false
+    val mapTomteTown = mapOf(
+        "Tomten" to listOf("Glader", "Butter"), "Glader" to listOf("Tröger", "Trötter", "Blyger"),
+        "Butter" to listOf("Rådjuret", "Nyckelpigan", "Haren", "Räven"), "Trötter" to listOf("Skumtomten"),
+        "Skumtomten" to listOf("Dammråttan"), "Räven" to listOf("Gråsuggan", "Myran"), "Myran" to listOf("Bladlusen")
+    )
+
+    val tomteNameInput = tl.askForTomte(isTest)
+    println("$tomteNameInput har följande undersåtar: " + tl.getUnderlings(tomteNameInput, mapTomteTown))
 }

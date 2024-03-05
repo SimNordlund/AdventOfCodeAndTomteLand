@@ -22,6 +22,6 @@ fun main() {
     val actualSimonPlayer = ct.convertSimonListVersion2(dataInString)
 
     //Skickar in reviderad spelare i metoden.
-    val isItDone = ct.gameRounds(actualSimonPlayer, tomtePlayer)
-    println(isItDone)
+    val actualResultGames = ct.gameRounds(actualSimonPlayer, tomtePlayer)
+    println(actualResultGames)
 }

@@ -1,7 +1,6 @@
 import TomteTown.Tomteland
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 
 class TomtelandTest {
     private var tl = Tomteland()
@@ -15,10 +14,20 @@ class TomtelandTest {
         "Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran",
         "Bladlusen"
     )
-    private var uTrötter: List<String> = mutableListOf("Dammråttan", "Skumtomten") //Stämmer denna?
+    private var uTrötter: List<String> = mutableListOf("Dammråttan", "Skumtomten")
     private var uSkumtomten: List<String> = mutableListOf("Dammråttan")
     private var uRäven: List<String> = mutableListOf("Gråsuggan", "Myran", "Bladlusen")
     private var uMyran = mutableListOf("Bladlusen")
+
+
+    @Test
+    fun askForTomteTEst() {
+        val isTest = true
+        val inputUser = tl.askForTomte(isTest)
+
+        assertNotNull(inputUser)
+        assertEquals(inputUser, "TestTomte")
+    }
 
     @Test
     fun underlingsTomtenTest() {

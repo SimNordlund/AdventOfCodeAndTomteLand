@@ -1,41 +1,43 @@
 package TomteTown
 
 class Tomteland {
+    fun getUnderlings(tomteName: String, mapTomteTown: Map<String, List<String>>): List<String> {
 
-    val mapTomteTown = mapOf( "Tomten" to listOf("Glader", "Butter"), "Glader" to listOf("Tröger", "Trötter", "Blyger"),
-        "Butter" to listOf("Rådjuret", "Nyckelpigan", "Haren", "Räven"), "Trötter" to listOf("Skumtomten"),
-        "Skumtomten" to listOf("Dammråttan"), "Räven" to listOf("Gråsuggan", "Myran"), "Myran" to listOf("Bladlusen")
-    )
+        tailrec fun findUnderlings(tomteSearch: List<String>, underlingsFound: List<String>): List<String> {
+            return if (tomteSearch.isEmpty()) underlingsFound ///När tomteSearch är tom, return underlings/ackumulator.
 
-    fun getUnderlings(currentName: String, mapTomteTown: Map<String, List<String>>): List<String> {
-        val tempListAvTomtar = mutableListOf<String>() // Samlar slav-tomtar
+            else {
+                //Tar fram tomtenyckeln som ska sökas på.
+                val tomteKey = tomteSearch.first()
+                //Letar upp listan som tillhör nyckeln. Om ej finns någon och det blir null -> TomLista.
+                val newUnderlings = mapTomteTown[tomteKey] ?: listOf()
+                //Tar bort söktTomte och lägger till nästa ev. Tomte/Tomtar. Tom lista + befintlig lista = oförändrat.
+                val newTomteSearch = tomteSearch.drop(1) + newUnderlings
+                //Slår ihop nya underlings med de nuvarande.
+                val newUnderlingsFound = underlingsFound + newUnderlings
 
-        tailrec fun recursiveFind(name: String) {
-            mapTomteTown[name]?.forEach { underling -> //Elvis
-                if (!tempListAvTomtar.contains(underling)) {
-                    tempListAvTomtar.add(underling)
-                    recursiveFind(underling) // Rekursivt sök efter underlydande
-                }
+                //printValuesFromFunction(tomteKey, newUnderlings, newTomteSearch, newUnderlingsFound)
+                return findUnderlings(newTomteSearch, newUnderlingsFound)
             }
         }
-        recursiveFind(currentName) // Starta sökningen. Tar in namn som parameter.
-        return tempListAvTomtar
+        return findUnderlings(listOf(tomteName), listOf())
     }
 
-    //Hittar undersåtar, direkta samt indirekta
-    fun getUnderlings2(currentName: String, mapTomteTown: Map<String, List<String>>): List<String> {
-
-        //ToProcess ex. Trötter samt en tom list foundUnderlings initialt.
-        tailrec fun recursiveFind(toProcess: List<String>, foundUnderlings: List<String>): List<String> {
-            if (toProcess.isEmpty()) return foundUnderlings //.distinct??
-
-            val current = toProcess.first() //Vi tar det första elementet -> Trötter
-            val newUnderlings = mapTomteTown[current] ?: listOf() //Tar fram -> Skumtomten
-            val newToProcess = toProcess.drop(1) + newUnderlings //Tar bort Trötter och lägger till -> Skumtomten
-            val newFound = foundUnderlings + newUnderlings //Blir också skumtomten
-
-            return recursiveFind(newToProcess, newFound)
+    fun askForTomte(isTest: Boolean): String {
+        return if (isTest) {
+            "TestTomte"
+        } else {
+            println("Ange tomte")
+            val userInput: String = readlnOrNull() ?: "TomTomte"
+            userInput
         }
-        return recursiveFind(listOf(currentName), listOf())
+    }
+
+    private fun printValuesFromFunction(key: String, newUL: List<String>, newTS: List<String>, newULF: List<String>) {
+        println()
+        println("Detta är tomteKey: $key")
+        println("Detta är newUnderlings: $newUL")
+        println("Detta är newTomteSearch: $newTS")
+        println("Detta är newUnderlingsFound: $newULF")
     }
 }

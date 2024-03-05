@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Assertions.*
 
 class CalculateAndTransform2Test {
 
-    var ct = CalculateAndTransform2()
+    private var ct = CalculateAndTransform2()
 
     @Test
     fun convertTomteListTest(){
         val testList = mutableListOf("A Z","B X","C X")
         val result = mutableListOf("A", "B", "C")
         val result2 = mutableListOf("A", "B", "D")
-        assert(ct.convertTomteList(testList).equals(result))
-        assert(!ct.convertTomteList(testList).equals(result2))
+        assert(ct.convertTomteList(testList) == result)
+        assert(ct.convertTomteList(testList) != result2)
         assertEquals(ct.convertTomteList(testList), result)
     }
 
@@ -25,9 +25,9 @@ class CalculateAndTransform2Test {
         val testList2 = mutableListOf("B", "A", "C P")
         val result2 = mutableListOf("B", "A", "C P")
 
-        assert (ct.convertSimonList(testList).equals(result))
-        assert (ct.convertSimonList(testList2).equals(result2))
-        assert (!ct.convertSimonList(testList2).equals(result))
+        assert (ct.convertSimonList(testList) == result)
+        assert (ct.convertSimonList(testList2) == result2)
+        assert (ct.convertSimonList(testList2) != result)
         assertNotEquals(result2, ct.convertSimonList(testList))
     }
 
@@ -37,9 +37,9 @@ class CalculateAndTransform2Test {
         val testListSimon = mutableListOf("B", "A", "C")
 
         assertEquals(15, ct.gameRounds(testListSimon, testListTomte))
-        assert (ct.gameRounds(testListSimon, testListTomte).equals(15))
-        assert (!ct.gameRounds(testListSimon, testListTomte).equals(16))
-        assert (!ct.gameRounds(testListSimon, testListTomte).equals(1337))
+        assert (ct.gameRounds(testListSimon, testListTomte) == 15)
+        assert (ct.gameRounds(testListSimon, testListTomte) != 16)
+        assert (ct.gameRounds(testListSimon, testListTomte) != 1337)
     }
 
     @Test
@@ -48,7 +48,7 @@ class CalculateAndTransform2Test {
         val resList = mutableListOf("C", "A", "A", "C")
         val fakeList = mutableListOf("C", "5", "3", "C")
 
-        assert (ct.convertSimonListVersion2(testList).equals(resList))
-        assert (!ct.convertSimonListVersion2(testList).equals(fakeList))
+        assert (ct.convertSimonListVersion2(testList) == resList)
+        assert (ct.convertSimonListVersion2(testList) != fakeList)
     }
 }
