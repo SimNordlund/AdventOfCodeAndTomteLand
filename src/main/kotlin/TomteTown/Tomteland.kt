@@ -1,6 +1,13 @@
 package TomteTown
 
 class Tomteland {
+
+    val mapTomteTown = mapOf(
+        "Tomten" to listOf("Glader", "Butter"), "Glader" to listOf("Tröger", "Trötter", "Blyger"),
+        "Butter" to listOf("Rådjuret", "Nyckelpigan", "Haren", "Räven"), "Trötter" to listOf("Skumtomten"),
+        "Skumtomten" to listOf("Dammråttan"), "Räven" to listOf("Gråsuggan", "Myran"), "Myran" to listOf("Bladlusen")
+    )
+
     fun getUnderlings(tomteName: String, mapTomteTown: Map<String, List<String>>): List<String> {
 
         tailrec fun findUnderlings(tomteSearch: List<String>, underlingsFound: List<String>): List<String> {
@@ -33,7 +40,7 @@ class Tomteland {
         }
     }
 
-    private fun printValuesFromFunction(key: String, newUL: List<String>, newTS: List<String>, newULF: List<String>) {
+    fun printValuesFromFunction(key: String, newUL: List<String>, newTS: List<String>, newULF: List<String>) {
         println()
         println("Detta är tomteKey: $key")
         println("Detta är newUnderlings: $newUL")
